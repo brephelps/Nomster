@@ -1,3 +1,6 @@
+<div class="pages">
+  <%= page_entries_info @places, entry_name: 'item' %>
+</div>
 <% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= place.name %></h1>
@@ -5,3 +8,6 @@
     <p><%= place.description %></p><br />
   </div>
 <% end %>
+<div class="pages">
+  <%= paginate @places %>
+</div>
