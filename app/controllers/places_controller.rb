@@ -20,12 +20,17 @@ class PlacesController < ApplicationController
     end
     redirect_to root_path
   end
-end
+
+  def show
+    @place = Place.find(params[:id])
+  end
 
 
-private
+
+  private
 
 
-def place_params
-  params.require(:place).permit(:name, :address, :description)
+  def place_params
+    params.require(:place).permit(:name, :address, :description)
+  end
 end
