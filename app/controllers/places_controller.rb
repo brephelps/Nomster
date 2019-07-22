@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def Kaminari.configure
     paginates_per 10
@@ -13,7 +14,7 @@ class PlacesController < ApplicationController
   end
 
   def create
-    Place.create(place_params)
+    @place = current_user.places.create(place_params)
     if @place.invalid?
       flash[:error] = '<strong>Could not save</strong> the data you entered is invalid.'
     end
