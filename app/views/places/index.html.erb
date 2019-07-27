@@ -7,12 +7,7 @@
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p>
     <% if place.photos.present? %>
-      <% place.photos.each do |image| %>
-        @photo_url = image.picture.url
-      <% end %>
-      <% if place.photos.last %>
-        <%= image_tag place.photos.(@photo_url) %>
-      <% end %>
+      <%= image_tag place.photos.last.picture.url %>
     <% end %>
     
     <br />
