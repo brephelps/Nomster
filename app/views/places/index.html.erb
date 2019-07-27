@@ -6,6 +6,17 @@
     <h1><%= link_to place.name, place_path(place), style: 'text-decoration: none; color: #c2c1c0' %></h1>
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p>
+    <% if place.photos.present? %>
+      <% place.photos.each do |image| %>
+        @photo_url = image.picture.url
+      <% end %>
+      <% if place.photos.last %>
+        <%= image_tag place.photos.(@photo_url) %>
+      <% end %>
+    <% end %>
+    
+    <br />
+    <br />
 
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
