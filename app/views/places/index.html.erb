@@ -7,7 +7,7 @@
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p>
     <% if place.photos.present? %>
-      <%= image_tag place.photos.last.picture.url %>
+      <%= image_tag place.photos.last.picture.url, class: 'img' %>
     <% end %>
     
     <br />
